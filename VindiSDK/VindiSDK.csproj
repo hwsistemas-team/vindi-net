@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Vindi.SDK</RootNamespace>
+    <PackageId>VindiSDK</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>hwsistemas</Authors>
+    <Company>hwsitemas</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.3" />
+  </ItemGroup>
+
+</Project>
