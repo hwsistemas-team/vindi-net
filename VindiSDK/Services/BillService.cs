@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Vindi.SDK.Enttites;
-using Vindi.SDK.Http;
 
 namespace Vindi.SDK.Services
 {
@@ -19,9 +18,10 @@ namespace Vindi.SDK.Services
             return _service.PostAsync<Bill, Bill>("bills", bill);
         }
 
-        public Task<VindiResponseWithData<IEnumerable<Bill>>> FindAsync(VindRequestParams<Bill> parameters)
+        public async Task<VindiResponseWithData<IEnumerable<Bill>>> FindAsync(VindRequestParams<Bill> parameters)
         {
-            return _service.GetAsync<IEnumerable<Bill>>("bills", parameters);
+            var result = await _service.GetAsync<WrapperBills>("bills", parameters);
+            return result.MakeNewData(result.Data.Bills);
         }
 
         public Task<VindiResponseWithData<Bill>> GetAsync(int id)

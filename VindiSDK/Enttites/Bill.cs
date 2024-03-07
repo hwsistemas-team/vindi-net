@@ -39,6 +39,6 @@ namespace Vindi.SDK.Enttites
 
     public class WrapperBills
     {
-        public Bill[] Bills { get; set; }
+        public IEnumerable<Bill> Bills { get; set; }
     }
 }
