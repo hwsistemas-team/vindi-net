@@ -63,6 +63,14 @@ namespace Vindi.SDK.Linq
             return node;
         }
 
+        protected override Expression VisitUnary(UnaryExpression node)
+        {
+            if (node.NodeType == ExpressionType.Not)
+                queryBuild.Append("-");
+
+            return base.VisitUnary(node);
+        }
+
         protected override Expression VisitConstant(ConstantExpression node)
         {
             var value = FormatterValue(node.Value);

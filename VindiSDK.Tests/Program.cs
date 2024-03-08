@@ -28,6 +28,10 @@ async Task TestVindiService()
     //     }
     // });
 
+    // var result1 = await vindi.Bills.FindAsync(new VindRequestParams<Bill>(1, 24)
+    //         .Filters(x => x.SubscriptionId == 100 && !(x.Id == 5))
+    //         .OrderByDescending(x => x.CreatedAt));
+
     var customersResult = await vindi.Customers.FindAsync(new VindRequestParams<Customer>(1, 10));
 
     Console.WriteLine($"Total customers : " + customersResult.Total);
