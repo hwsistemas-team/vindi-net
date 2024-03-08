@@ -37,7 +37,7 @@ namespace Vindi.SDK.Services
             return this;
         }
 
-        public VindRequestParams<TEntity> OrderBy(Expression<Func<TEntity, object>> property)
+        public VindRequestParams<TEntity> OrderBy<TPropValue>(Expression<Func<TEntity, TPropValue>> property)
         {
             if (property.Body.NodeType != ExpressionType.MemberAccess)
                 throw new FilterExpressionException("Expected member access expression");
@@ -50,7 +50,7 @@ namespace Vindi.SDK.Services
             return this;
         }
 
-        public VindRequestParams<TEntity> OrderByDescending(Expression<Func<TEntity, object>> property)
+        public VindRequestParams<TEntity> OrderByDescending<TPropValue>(Expression<Func<TEntity, TPropValue>> property)
         {
             if (property.Body.NodeType != ExpressionType.MemberAccess)
                 throw new FilterExpressionException("Expected member access expression");
