@@ -54,7 +54,9 @@ namespace Vindi.SDK.Services
         public async Task<VindiResponseWithData<TResultData>> PostAsync<TInputData, TResultData>(string resource, TInputData data) where TInputData : class where TResultData : class
         {
             var request = new RestRequest(resource, Method.Post);
-            request.AddJsonBody(data);
+
+            if (data != null)
+                request.AddJsonBody(data);
 
             var response = await client.ExecuteAsync<TResultData>(request);
             ThrowIfResponseError(response);
@@ -65,7 +67,9 @@ namespace Vindi.SDK.Services
         public async Task<VindiResponseWithData<TResultData>> PutAsync<TInputData, TResultData>(string resource, TInputData data) where TInputData : class where TResultData : class
         {
             var request = new RestRequest(resource, Method.Put);
-            request.AddJsonBody(data);
+
+            if (data != null)
+                request.AddJsonBody(data);
 
             var response = await client.ExecuteAsync<TResultData>(request);
             ThrowIfResponseError(response);
