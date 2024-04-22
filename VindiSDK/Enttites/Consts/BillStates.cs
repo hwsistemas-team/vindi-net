@@ -6,7 +6,7 @@ namespace Vindi.SDK.Enttites.Consts
     {
         public const string Review = "review";
 
-        public const string Peding = "pending";
+        public const string Pending = "pending";
 
         public const string Canceld = "canceled";
 

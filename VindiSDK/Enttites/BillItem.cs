@@ -13,5 +13,7 @@ namespace Vindi.SDK.Enttites
         public ProductView1 Product { get; set; }
         public ProductItem ProductItem { get; set; }
         public Discount Discount { get; set; }
+
+        public int? ProductId { get; set; }
     }
 }

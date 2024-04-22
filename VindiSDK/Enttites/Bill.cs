@@ -29,6 +29,7 @@ namespace Vindi.SDK.Enttites
         public int? SubscriptionId { get; set; }
         public int? CustomerId { get; set; }
         public int? PaymentMethodId { get; set; }
+        public string PaymentMethodCode { get; set; }
         public int? PeriodId { get; set; }
     }
 
