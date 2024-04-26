@@ -27,7 +27,7 @@ namespace Vindi.SDK.Services
 
         public async Task<VindiResponseWithData<ProductItem>> UpdateAsync(ProductItem productItem)
         {
-            var result = await _service.PostAsync<ProductItem, WrapperProductItem>("product_items/" + productItem.Id, productItem);
+            var result = await _service.PutAsync<ProductItem, WrapperProductItem>("product_items/" + productItem.Id, productItem);
             return result.MakeNewData(result.Data.ProductItem);
         }
 

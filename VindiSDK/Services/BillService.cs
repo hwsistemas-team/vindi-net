@@ -14,9 +14,10 @@ namespace Vindi.SDK.Services
             _service = new BaseService<Bill>(context);
         }
 
-        public Task<VindiResponseWithData<Bill>> CreateAsync(Bill bill)
+        public async Task<VindiResponseWithData<Bill>> CreateAsync(Bill bill)
         {
-            return _service.PostAsync<Bill, Bill>("bills", bill);
+            var result = await _service.PostAsync<Bill, WrapperBill>("bills", bill);
+            return result.MakeNewData(result.Data.Bill);
         }
 
         public async Task<VindiResponseWithData<IEnumerable<Bill>>> FindAsync(VindRequestParams<Bill> parameters)
@@ -25,17 +26,19 @@ namespace Vindi.SDK.Services
             return result.MakeNewData(result.Data.Bills);
         }
 
-        public Task<VindiResponseWithData<Bill>> GetAsync(int id)
+        public async Task<VindiResponseWithData<Bill>> GetAsync(int id)
         {
-            return _service.GetAsync<Bill>("bills/" + id);
+            var result = await _service.GetAsync<WrapperBill>("bills/" + id);
+            return result.MakeNewData(result.Data.Bill);
         }
 
-        public Task<VindiResponseWithData<Bill>> UpdateAsync(Bill bill)
+        public async Task<VindiResponseWithData<Bill>> UpdateAsync(Bill bill)
         {
-            return _service.PostAsync<Bill, Bill>("bills/" + bill.Id, bill);
+            var result = await _service.PostAsync<Bill, WrapperBill>("bills/" + bill.Id, bill);
+            return result.MakeNewData(result.Data.Bill);
         }
 
-        public Task<VindiResponse> CancelAsync(int id, BillCancelParams parameters)
+        public async Task<VindiResponseWithData<Bill>> CancelAsync(int id, BillCancelParams parameters)
         {
             var urlParams = new List<KeyValuePair<string, string>>()
             {
@@ -43,12 +46,14 @@ namespace Vindi.SDK.Services
                 new KeyValuePair<string, string>("comments", parameters.Comments)
             };
 
-            return _service.DeleteAsync(UrlFormatter.Format("bills/{id}", urlParams));
+            var result = await  _service.DeleteAsync<WrapperBill>(UrlFormatter.Format("bills/{id}", urlParams));
+            return result.MakeNewData(result.Data.Bill);
         }
 
-        public Task<VindiResponseWithData<Bill>> ApproveAsync(int id)
+        public async Task<VindiResponseWithData<Bill>> ApproveAsync(int id)
         {
-            return _service.PutAsync<Bill, Bill>("bills/" + id, null);
+            var result = await _service.PutAsync<Bill, WrapperBill>("bills/" + id, null);
+            return result.MakeNewData(result.Data.Bill);
         }
     }
 

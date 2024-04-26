@@ -93,7 +93,7 @@ namespace Vindi.SDK.Services
 
         public async Task<VindiResponseWithData<TResultData>> DeleteAsync<TResultData>(string resource) where TResultData : class
         {
-            var request = new RestRequest(resource, Method.Get);
+            var request = new RestRequest(resource, Method.Delete);
 
             var response = await client.ExecuteAsync<TResultData>(request);
             ThrowIfResponseError(response);
