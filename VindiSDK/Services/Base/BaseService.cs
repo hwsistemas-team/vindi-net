@@ -31,11 +31,9 @@ namespace Vindi.SDK.Services
 
             client = new RestClient(new RestClientOptions
             {
-                BaseUrl = new Uri(context.BaseUrl)
-            });
-
-            client.Authenticator = new HttpBasicAuthenticator(context.ApiKey, "");
-            client.UseNewtonsoftJson(Json.CustomJsonSerializer.GetJsonSerializerSettings());
+                BaseUrl = new Uri(context.BaseUrl),
+                Authenticator = new HttpBasicAuthenticator(context.ApiKey, "")
+            }, configureSerialization: s => s.UseNewtonsoftJson(Json.CustomJsonSerializer.GetJsonSerializerSettings()));
         }
 
         public async Task<VindiResponseWithData<TResultData>> GetAsync<TResultData>(string resource, VindRequestParams<TEntity> parameters = null) where TResultData : class
