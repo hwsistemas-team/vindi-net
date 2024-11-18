@@ -262,6 +262,10 @@ namespace Vindi.SDK.Linq
             {
                 return $"\"{((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss")}\"";
             }
+            else if (value is DateTimeOffset)
+            {
+                return $"\"{((DateTime)value).ToString("yyyy-MM-dd HH:mm:ss")}\"";
+            }
             else
                 return value;
         }
