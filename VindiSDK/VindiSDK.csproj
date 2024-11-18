@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Vindi.SDK</RootNamespace>
     <PackageId>VindiSDK</PackageId>
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <Authors>hwsistemas</Authors>
     <Company>hwsitemas</Company>
     <PackageReadmeFile>README.md</PackageReadmeFile>

@@ -14,6 +14,7 @@ namespace Vindi.SDK.Services
         private PeriodsService _periods;
         private UsagesService _usages;
         private ProductItemsService _productItems;
+        private DiscountService _discounts;
 
         public VindiService(string baseUrl, string apiKey)
         {
@@ -111,6 +112,17 @@ namespace Vindi.SDK.Services
                     _usages = new UsagesService(_context);
 
                 return _usages;
+            }
+        }
+
+        public DiscountService Discounts
+        {
+            get
+            {
+                if (_discounts == null)
+                    _discounts = new DiscountService(_context);
+
+                return _discounts;
             }
         }
     }
