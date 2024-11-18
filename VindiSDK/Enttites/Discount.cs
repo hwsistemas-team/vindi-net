@@ -11,6 +11,7 @@ namespace Vindi.SDK.Enttites
         public int? Quantity { get; set; }
         public int? Cycles { get; set; }
         public int? ProductItemId { get; set; }
+        public string Status { get; set; }
         public DiscountProductItem ProductItem { get; set; }
     }
 
