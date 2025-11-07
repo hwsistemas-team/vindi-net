@@ -5,7 +5,7 @@ namespace Vindi.SDK.Enttites
 {
     public class PaymentProfile
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string HolderName { get; set; }
         public string RegistryCode { get; set; }
         public string BankBranch { get; set; }
@@ -17,7 +17,7 @@ namespace Vindi.SDK.Enttites
         public string CardCvv { get; set; }
         public string PaymentMethodCode { get; set; }
         public string PaymentCompanyCode { get; set; }
-        public string Token { get; set; }
+        public string GatewayToken { get; set; }
         public int? CustomerId { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public PaymentCompany PaymentCompany { get; set; }
